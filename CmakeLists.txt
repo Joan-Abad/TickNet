@@ -29,6 +29,25 @@ target_sources(TickNet PRIVATE ${TICKNET_SOURCES})
 
 #Sample Executables
 
+#TickNet
+
+target_link_libraries(TickNet
+    PRIVATE ws2_32
+)
+
+#TickNet Server
+
+add_executable(TickNetServer
+    samples/Server/main.cpp
+)
+
+target_link_libraries(TickNetServer
+    PRIVATE TickNet
+)
+
+
+#TickNet Client
+
 add_executable(TickNetClient
     samples/Client/main.cpp
 )
@@ -37,6 +56,5 @@ target_link_libraries(TickNetClient
     PRIVATE TickNet
 )
 
-target_link_libraries(TickNet
-    PRIVATE ws2_32
-)
+
+
